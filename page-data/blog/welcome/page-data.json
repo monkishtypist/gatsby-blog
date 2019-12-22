@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-post-js","path":"/blog/welcome","result":{"data":{"markdownRemark":{"html":"<p>This is my first blog post.</p>","frontmatter":{"date":"December 21, 2019","path":"/blog/welcome","title":"Welcome to the LFM Blog"}}},"pageContext":{"isCreatedByStatefulCreatePages":false}}}

@@ -3,20 +3,22 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 
 const PostsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
   border-right: 1px solid gray;
+  display: flex;
+  flex: 0 0 25%;
+  flex-direction: column;
   height: 100vh;
+  margin: 0;
+  max-height: 100vh;
   overflow-y: auto;
+  padding: 0;
 `
 
 const PostWrapper = styled(Link)`
   display: flex;
-  flex: 1 0 auto;
+  flex: 0 1 auto;
   flex-direction: column;
-  padding: 1rem;
+  padding: ${props => props.theme.wrapper.paddingY} ${props => props.theme.wrapper.paddingX};
   border-bottom: 1px solid gray;
 `
 

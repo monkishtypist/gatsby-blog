@@ -41,12 +41,6 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-plugin-transition-link`,
-      options: {
-        layout: require.resolve(`./src/components/layout.js`)
-      }
-    },
-    {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,

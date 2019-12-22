@@ -1,9 +1,10 @@
-import React from "react"
-import styled from "styled-components"
-import PostsList from "../components/posts"
-import MainMenu from "../components/menu"
+import React from 'react'
+import { ThemeProvider } from 'styled-components'
+import styled from 'styled-components'
+import theme from '../styles/theme'
+import MainMenu from '../components/menu'
 
-const LayoutWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex: 1 0 100%;
   flex-direction: row;
@@ -12,11 +13,12 @@ const LayoutWrapper = styled.div`
 
 const Layout = ({ children }) => {
   return (
-    <LayoutWrapper>
-      <MainMenu />
-      <PostsList />
-      {children}
-    </LayoutWrapper>
+    <ThemeProvider theme={theme}>
+      <Wrapper>
+        <MainMenu />
+        {children}
+      </Wrapper>
+    </ThemeProvider>
   )
 }
 

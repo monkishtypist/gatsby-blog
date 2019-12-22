@@ -1,8 +1,8 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
+import PostsList from "../components/posts"
 
 const Main = styled.main`
   display: flex;
@@ -14,19 +14,12 @@ const Main = styled.main`
 `
 
 const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        ...siteMeta
-      }
-    }
-  `)
-
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Blog" />
+      <PostsList />
       <Main>
-        <h1>{data.site.siteMetadata.title}</h1>
+        <p>This is the blog home page</p>
       </Main>
     </Layout>
   )

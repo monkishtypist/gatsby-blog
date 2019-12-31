@@ -14,7 +14,14 @@ const PostWrapper = styled.div`
 `
 
 const PostHeader = styled.div`
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
 `
+
+const PostTitle = styled.h1``
+
+const PostDate = styled.h5``
 
 const PostBody = styled.div`
 `
@@ -27,28 +34,23 @@ export default function Template({ data }) {
       <PostsList />
       <PostWrapper>
         <PostHeader>
-          <h1>{frontmatter.title}</h1>
-          <h2>{frontmatter.date}</h2>
+          <PostTitle>{frontmatter.title}</PostTitle>
+          <PostDate>{frontmatter.date}</PostDate>
         </PostHeader>
         <hr />
-        <PostBody>
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </PostBody>
+        <PostBody dangerouslySetInnerHTML={{ __html: html }} />
       </PostWrapper>
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query($slug: String!) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        path
+        slug
         title
       }
     }

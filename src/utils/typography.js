@@ -5,10 +5,10 @@ import Typography from 'typography'
 
 const typography = new Typography({
   baseFontSize: '16px',
-  baseLineHeight: 1.5,
+  baseLineHeight: 1.1,
   googleFonts: [
     {
-      name: 'Roboto',
+      name: 'Muli',
       styles: [
         '300',
         '400',
@@ -20,14 +20,21 @@ const typography = new Typography({
     },
   ],
   headerFontFamily: [
-    'Roboto',
+    'Muli',
     'Helvetica Neue',
     'Segoe UI',
     'Helvetica',
     'Arial',
     'sans-serif',
   ],
-  bodyFontFamily: ['Roboto', 'sans-serif'],
+  bodyFontFamily: [
+    'Muli',
+    'Helvetica Neue',
+    'Segoe UI',
+    'Helvetica',
+    'Arial',
+    'sans-serif',
+  ],
   headerWeight: 300
 })
 

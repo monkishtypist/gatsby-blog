@@ -1,28 +1,34 @@
 import React from "react"
-import styled from "styled-components"
-import SEO from "../components/seo"
-import Layout from "../components/layout"
-import PostsList from "../components/posts"
+import { Redirect } from '@reach/router'
+import { useStaticQuery, graphql } from "gatsby"
 
-const Main = styled.main`
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  max-height: 100vh;
-  overflow-y: auto;
-  padding: ${props => props.theme.wrapper.paddingY} ${props => props.theme.wrapper.paddingX};
-`
+const BlogPage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1
+      ) {
+        edges {
+          node {
+            frontmatter {
+              slug
+              title
+              date
+            }
+          }
+        }
+      }
+    }
+  `)
 
-const IndexPage = () => {
   return (
-    <Layout>
-      <SEO title="Blog" />
-      <PostsList />
-      <Main>
-        <p>This is the blog home page</p>
-      </Main>
-    </Layout>
+    <>
+      {data.allMarkdownRemark.edges.map(({ node }, index) => (
+        <Redirect to={`/blog/${node.frontmatter.slug}`} />
+      ))}
+    </>
   )
 }
 
-export default IndexPage
+export default BlogPage

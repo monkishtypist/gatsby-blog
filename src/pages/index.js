@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
+import PostsList from "../components/posts"
 
 const Main = styled.main`
   display: flex;
@@ -25,6 +26,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
+      <PostsList />
       <Main>
         <h1>{data.site.siteMetadata.title}</h1>
       </Main>
